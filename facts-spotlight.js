@@ -123,13 +123,40 @@ class FactsSpotlight extends HTMLElement {
 
 customElements.define("facts-spotlight", FactsSpotlight);
 
+const COMPACT_STORAGE_KEY = "hw5-facts-spotlight-compact";
+const VALID_COMPACT_VALUES = new Set(["true", "false"]);
+
+function readSavedCompactPreference() {
+  try {
+    const saved = localStorage.getItem(COMPACT_STORAGE_KEY);
+    if (saved !== null && VALID_COMPACT_VALUES.has(saved)) {
+      return saved === "true";
+    }
+  } catch (error) {
+    console.warn("Could not read compact preference from localStorage.", error);
+  }
+  return false;
+}
+
+function saveCompactPreference(isCompact) {
+  try {
+    localStorage.setItem(COMPACT_STORAGE_KEY, String(isCompact));
+  } catch (error) {
+    console.warn("Could not save compact preference to localStorage.", error);
+  }
+}
+
 const toggleDetailsBtn = document.querySelector("#toggle-details");
 const spotlightEl = document.querySelector("facts-spotlight");
 
-
 // quick check to see if the toggle button is there
 if (toggleDetailsBtn && spotlightEl) {
+  const initialCompact = readSavedCompactPreference();
+  spotlightEl.toggleAttribute("compact", initialCompact);
+
   toggleDetailsBtn.addEventListener("click", () => {
-    spotlightEl.toggleAttribute("compact");
+    const nextCompact = !spotlightEl.hasAttribute("compact");
+    spotlightEl.toggleAttribute("compact", nextCompact);
+    saveCompactPreference(nextCompact);
   });
 }
