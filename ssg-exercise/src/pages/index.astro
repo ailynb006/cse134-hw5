@@ -1,0 +1,60 @@
+---
+import Footer from "../components/Footer.astro";
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home</title>
+		<link rel="stylesheet" href="/styling.css" />
+	</head>
+	<body>
+			<!-- Global Header & Navigation -->
+    	<header>
+        	<nav>
+            	<ul>
+                	<li><a href="/">Home</a></li>
+                	<li><a href="gallery.html">Gallery</a></li>
+                	<li><a href="projects.html">Projects</a></li>
+                	<li><a href="experiments.html">Exp</a></li>
+                	<li><a href="/resume">Resume</a></li>
+                	<li><a href="form-no-js.html">Contact Me (no JS)</a></li>
+                	<li><a href="form-with-js.html">Contact Me (with JS)</a></li>
+            	</ul>
+        	</nav>
+        	<button id="theme-switch" class="js-required" aria-label="Switch to dark theme" style="display: none;">
+            	Display Mode 🎀
+        	</button>
+    	</header>
+
+    	<!-- Main Content Area -->
+    	<main>
+        	<h1>Hi, my name is Ailyn</h1>
+        	<h2>Professional Summary</h2>
+        	<p>Computer science student at UC San Diego, professional opera singer, and software engineer passionate about web dev, graphics, and building creative tools.</p>
+        
+        	<div>
+            	<!-- Collage of personality pictures placeholder -->
+            	<picture>
+                	<img src="/placeholder-collage.jpg" alt="Collage of personality pictures" width="300" height="200">
+            	</picture>
+        	</div>
+
+        	<div>
+            	<p><a href="_/AilynBecerra_Resume_Su26.pdf" target="_blank">View Resume (PDF)</a></p>
+        	</div>
+
+        	<section>
+            	<h3>Technical Skills &amp; Capabilities</h3>
+            	<p>Front-End Development (HTML/CSS/JS)</p>
+            	<div></div>
+            
+            	<p>Graphics &amp; C++ / Python</p>
+            	<div></div>
+        	</section>
+    	</main>
+
+		<Footer />
+	</body>
+</html>
